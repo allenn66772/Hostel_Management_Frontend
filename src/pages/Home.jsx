@@ -23,7 +23,7 @@ function Home() {
             Simplify hostel management with an all-in-one dashboard for rooms,
             students, attendance, and more.
           </p>
-          <motion.button
+          <motion.button 
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-blue-700"
