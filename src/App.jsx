@@ -8,6 +8,8 @@ import AddRoom from './pages/Addroom'
 import ComplaintDisplay from './pages/ComplaintPage'
 import FeesPage from './pages/Fees'
 import Home from './pages/Home'
+import Adminlogin from './login/Adminlogin'
+import Adminregister from './login/Adminregister'
 
 function App() {
  
@@ -16,13 +18,15 @@ function App() {
     <>
     <Routes>
      <Route path='/' element={<Home/>}/>
+     <Route path='adreg' element={<Adminregister/>}/>
+     <Route path='adlog' element={<Adminlogin/>}/>
      <Route path='addroom' element={<AddRoom/>}/>
      <Route path='fees' element={<FeesPage/>}/>
      <Route path='complaintpage' element={<ComplaintDisplay/>}/>
 
     </Routes>
-     <Header/>
-     <Home/>
+     {/* <Header/>
+     <Home/> */}
      {/* <AddRoom/> */}
      {/* <UserLogin/> */}
      {/* <Staff_Login/> */}
