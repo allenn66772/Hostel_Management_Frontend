@@ -23,6 +23,8 @@ function App() {
      <Route path='/' element={<Home/>}/>
      <Route path='adreg' element={<Adminregister/>}/>
      <Route path='adlog' element={<Adminlogin/>}/>
+     <Route path='userreg' element={<Userregister/>}/>
+     <Route path='userlog' element={<UserLogin/>}/>
      <Route path='addroom' element={<AddRoom/>}/>
      <Route path='fees' element={<FeesPage/>}/>
      <Route path='complaintpage' element={<ComplaintDisplay/>}/>
