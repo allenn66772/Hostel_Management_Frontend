@@ -1,47 +1,39 @@
-
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import Header from './components/Header'
-import Staff_Login from './login/Staff_Login'
-import UserLogin from './login/UserLogin'
-import AddRoom from './pages/Addroom'
-import ComplaintDisplay from './pages/ComplaintPage'
-import FeesPage from './pages/Fees'
-import Home from './pages/Home'
-import Adminlogin from './login/Adminlogin'
-import Adminregister from './login/Adminregister'
-// import ChooseLogin from './login/ChooseLogin'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Staff_Login from "./login/Staff_Login";
+import UserLogin from "./login/UserLogin";
+import AddRoom from "./pages/Addroom";
+import ComplaintDisplay from "./pages/ComplaintPage";
+import FeesPage from "./pages/Fees";
+import Home from "./pages/Home";
+import Adminlogin from "./login/Adminlogin";
+import Adminregister from "./login/Adminregister";
+import Userregister from "./login/Userregister";
+import ChooseLogin from "./login/ChooseLogin";
+import StaffRegister from "./login/StaffRegister";
 // import Adminhome from './pages/Adminhome'
 
-
 function App() {
- 
-
   return (
     <>
-    <Routes>
-     <Route path='/' element={<Home/>}/>
-     <Route path='adreg' element={<Adminregister/>}/>
-     <Route path='adlog' element={<Adminlogin/>}/>
-     <Route path='userreg' element={<Userregister/>}/>
-     <Route path='userlog' element={<UserLogin/>}/>
-     <Route path='addroom' element={<AddRoom/>}/>
-     <Route path='fees' element={<FeesPage/>}/>
-     <Route path='complaintpage' element={<ComplaintDisplay/>}/>
-     {/* <Route path='choose' element={<ChooseLogin/>}/>
-     <Route path='adminHome' element={<Adminhome/>}/> */}
-
-    </Routes>
-     {/* <Header/>
-     <Home/> */}
-     {/* <AddRoom/> */}
-     {/* <UserLogin/> */}
-     {/* <Staff_Login/> */}
-     {/* <ComplaintDisplay/> */}
-     {/* <FeesPage/> */}
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="adreg" element={<Adminregister />} />
+        <Route path="adlog" element={<Adminlogin />} />
+        <Route path="userreg" element={<Userregister />} />
+        <Route path="userlog" element={<UserLogin />} />
+        <Route path="staffreg" element={<StaffRegister />} />
+        <Route path="stafflog" element={<Staff_Login />} />
+        <Route path="addroom" element={<AddRoom />} />
+        <Route path="fees" element={<FeesPage />} />
+        <Route path="complaintpage" element={<ComplaintDisplay />} />
+        <Route path="choose" element={<ChooseLogin />} />
+        {/* <Route path='adminHome' element={<Adminhome/>}/> */}
+      </Routes>
+    
     </>
-  )
+  );
 }
 
-export default App
+export default App;
