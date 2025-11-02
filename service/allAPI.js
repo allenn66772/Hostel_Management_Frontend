@@ -20,3 +20,11 @@ export const getAdminByEmailAPI =async(email)=>{
 export const getUserByEmailAPI=async(email)=>{
     return await commonAPI("get",`${BASEURL}/userdata?email=${email}`,{})
 }
+//add data from staff register
+export const registerStaffAPI =async(reqbody)=>{
+    return await commonAPI("POST",`${BASEURL}/staffdata`,(reqbody))
+}
+// get login data from staff
+export const getStaffByEmailAPI =async(email)=>{
+    return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
+}

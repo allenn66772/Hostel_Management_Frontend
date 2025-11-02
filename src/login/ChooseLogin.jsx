@@ -18,7 +18,7 @@ function LandingPage() {
             Manage rooms, students, staff, and hostel operations efficiently.
           </p>
           <Link
-            to="/admin-login"
+            to="/adlog"
             className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Login as Admin
@@ -48,7 +48,7 @@ function LandingPage() {
             View your room details, fees, and submit complaints easily.
           </p>
           <Link
-            to="/student-login"
+            to="/userlog"
             className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition"
           >
             Login as Student
