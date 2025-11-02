@@ -10,6 +10,7 @@ import FeesPage from './pages/Fees'
 import Home from './pages/Home'
 import Adminlogin from './login/Adminlogin'
 import Adminregister from './login/Adminregister'
+import Userregister from './login/Userregister'
 
 function App() {
  
@@ -20,6 +21,8 @@ function App() {
      <Route path='/' element={<Home/>}/>
      <Route path='adreg' element={<Adminregister/>}/>
      <Route path='adlog' element={<Adminlogin/>}/>
+     <Route path='userreg' element={<Userregister/>}/>
+     <Route path='userlog' element={<UserLogin/>}/>
      <Route path='addroom' element={<AddRoom/>}/>
      <Route path='fees' element={<FeesPage/>}/>
      <Route path='complaintpage' element={<ComplaintDisplay/>}/>

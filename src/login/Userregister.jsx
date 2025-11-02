@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { registerAdminAPI } from "../../service/allAPI";
+import { registerUserAPI } from "../../service/allAPI";
 
-function Adminregister() {
-  const [adminData, setAdminData] = useState({
-    adminDetails: {
+function Userregister() {
+  const [userreg, setuserreg] = useState({
+    userDetails: {
       fullname: "",
       email: "",
       password: "",
@@ -15,33 +15,30 @@ function Adminregister() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { fullname, email, password, confrimpassword } =
-      adminData.adminDetails;
+    const { fullname, email, password, confrimpassword } = userreg.userDetails;
 
-   
-    if (!fullname || !email || !password || !confrimpassword) {
-      alert("All fields are required!");
+    if ((!fullname, !email, !password, !confrimpassword)) {
+      alert("All Fields are Required");
       return;
     }
 
     if (password !== confrimpassword) {
-      alert("Passwords do not match!");
+      alert("Password Doesn't match");
       return;
     }
-
     try {
-      const result = await registerAdminAPI(adminData.adminDetails);
+      const result = await registerUserAPI(userreg.userDetails);
       console.log(result);
-      alert("Admin registered successfully!");
-      window.location = "/adlog";
+      alert("User Registerd Successfully");
+      window.location = "/";
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please try again.");
+      console.log(error);
+      alert("something went wrong");
     }
   };
 
   return (
-  <>
+    <>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-blue-50 p-6">
         <motion.div
           className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8"
@@ -58,7 +55,7 @@ function Adminregister() {
               Sign up to manage hostel rooms and student records
             </p>
           </div>
-  
+
           {/* Form */}
           <form onSubmit={handleSubmit}>
             {/* Full Name */}
@@ -69,11 +66,11 @@ function Adminregister() {
               <input
                 type="text"
                 placeholder="John Doe"
-                value={adminData.adminDetails.fullname}
+                value={userreg.userDetails.fullname}
                 onChange={(e) =>
-                  setAdminData({
-                    adminDetails: {
-                      ...adminData.adminDetails,
+                  setuserreg({
+                    userDetails: {
+                      ...userreg.userDetails,
                       fullname: e.target.value,
                     },
                   })
@@ -82,7 +79,7 @@ function Adminregister() {
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
-  
+
             {/* Email */}
             <div className="mb-4">
               <label className="block text-gray-700 font-medium mb-2">
@@ -91,11 +88,11 @@ function Adminregister() {
               <input
                 type="email"
                 placeholder="you@example.com"
-                value={adminData.adminDetails.email}
+               value={userreg.userDetails.email}
                 onChange={(e) =>
-                  setAdminData({
-                    adminDetails: {
-                      ...adminData.adminDetails,
+                  setuserreg({
+                    userDetails: {
+                      ...userreg.userDetails,
                       email: e.target.value,
                     },
                   })
@@ -104,7 +101,7 @@ function Adminregister() {
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
-  
+
             {/* Password */}
             <div className="mb-4">
               <label className="block text-gray-700 font-medium mb-2">
@@ -113,11 +110,11 @@ function Adminregister() {
               <input
                 type="password"
                 placeholder="Enter your password"
-                value={adminData.adminDetails.password}
+                value={userreg.userDetails.password}
                 onChange={(e) =>
-                  setAdminData({
-                    adminDetails: {
-                      ...adminData.adminDetails,
+                  setuserreg({
+                    userDetails: {
+                      ...userreg.userDetails,
                       password: e.target.value,
                     },
                   })
@@ -126,7 +123,7 @@ function Adminregister() {
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
-  
+
             {/* Confirm Password */}
             <div className="mb-6">
               <label className="block text-gray-700 font-medium mb-2">
@@ -135,11 +132,11 @@ function Adminregister() {
               <input
                 type="password"
                 placeholder="Re-enter your password"
-                value={adminData.adminDetails.confrimpassword}
+                value={userreg.userDetails.confrimpassword}
                 onChange={(e) =>
-                  setAdminData({
-                    adminDetails: {
-                      ...adminData.adminDetails,
+                  setuserreg({
+                    userDetails: {
+                      ...userreg.userDetails,
                       confrimpassword: e.target.value,
                     },
                   })
@@ -148,7 +145,7 @@ function Adminregister() {
                 className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
-  
+
             {/* Submit Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -159,7 +156,7 @@ function Adminregister() {
               Sign Up
             </motion.button>
           </form>
-  
+
           {/* Footer */}
           <p className="mt-6 text-center text-sm text-gray-500">
             Already have an account?{" "}
@@ -169,8 +166,8 @@ function Adminregister() {
           </p>
         </motion.div>
       </div>
-  </>
+    </>
   );
 }
 
-export default Adminregister;
+export default Userregister;
