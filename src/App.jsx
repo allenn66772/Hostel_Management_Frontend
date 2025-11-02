@@ -10,7 +10,9 @@ import FeesPage from './pages/Fees'
 import Home from './pages/Home'
 import Adminlogin from './login/Adminlogin'
 import Adminregister from './login/Adminregister'
-import Userregister from './login/Userregister'
+// import ChooseLogin from './login/ChooseLogin'
+// import Adminhome from './pages/Adminhome'
+
 
 function App() {
  
@@ -26,6 +28,8 @@ function App() {
      <Route path='addroom' element={<AddRoom/>}/>
      <Route path='fees' element={<FeesPage/>}/>
      <Route path='complaintpage' element={<ComplaintDisplay/>}/>
+     {/* <Route path='choose' element={<ChooseLogin/>}/>
+     <Route path='adminHome' element={<Adminhome/>}/> */}
 
     </Routes>
      {/* <Header/>
