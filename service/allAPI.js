@@ -12,3 +12,11 @@ export const registerAdminAPI = async(reqbody)=>{
 export const getAdminByEmailAPI =async(email)=>{
     return await commonAPI("get",`${BASEURL}/admindata?email=${email}`,{})
 }
+//add data from user register
+ export const registerUserAPI =async(reqbody)=>{
+    return await commonAPI("POST",`${BASEURL}/userdata`,(reqbody))
+ }
+//get login data from user
+export const getUserByEmailAPI=async(email)=>{
+    return await commonAPI("get",`${BASEURL}/userdata?email=${email}`,{})
+}
