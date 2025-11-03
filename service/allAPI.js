@@ -16,6 +16,10 @@ export const getAdminByEmailAPI =async(email)=>{
  export const registerUserAPI =async(reqbody)=>{
     return await commonAPI("POST",`${BASEURL}/userdata`,(reqbody))
  }
+ //get data of user
+ export const getUSerAPI =async()=>{
+    return await commonAPI("GET",`${BASEURL}/userdata`)
+  }
 //get login data from user
 export const getUserByEmailAPI=async(email)=>{
     return await commonAPI("get",`${BASEURL}/userdata?email=${email}`,{})
@@ -27,4 +31,8 @@ export const registerStaffAPI =async(reqbody)=>{
 // get login data from staff
 export const getStaffByEmailAPI =async(email)=>{
     return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
+}
+// add fees status 
+export const getFeesDataAPI =async(reqbody)=>{
+    return await commonAPI("POST",`${BASEURL}/feesData`,(reqbody))
 }
