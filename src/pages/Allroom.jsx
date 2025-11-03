@@ -2,7 +2,9 @@ import React from 'react'
 
 function Allroom() {
   return (
-    <div>Allroom</div>
+    <>
+    <h1>Rooms</h1>
+    </>
   )
 }
 

@@ -28,3 +28,22 @@ export const registerStaffAPI =async(reqbody)=>{
 export const getStaffByEmailAPI =async(email)=>{
     return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
 }
+
+
+
+// Room section API's
+
+// add room
+export const addRoomAPI = async(roomDetails)=>{
+    return await commonAPI("POST", `${BASEURL}/roomData`, roomDetails)
+}
+
+//get room
+export const getRoomAPI = async ()=>{
+    return await commonAPI("GET", `${BASEURL}/roomData`,{})
+}
+
+// edit room
+export const editRoomAPI = async (id, roomDetails)=>{
+    return await commonAPI("PUT", `${BASEURL}/roomData/${id}`, roomDetails)
+}
