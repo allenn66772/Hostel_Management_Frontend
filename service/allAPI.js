@@ -16,6 +16,10 @@ export const getAdminByEmailAPI =async(email)=>{
  export const registerUserAPI =async(reqbody)=>{
     return await commonAPI("POST",`${BASEURL}/userdata`,(reqbody))
  }
+ //get data of user
+ export const getUSerAPI =async()=>{
+    return await commonAPI("GET",`${BASEURL}/userdata`)
+  }
 //get login data from user
 export const getUserByEmailAPI=async(email)=>{
     return await commonAPI("get",`${BASEURL}/userdata?email=${email}`,{})
@@ -28,22 +32,7 @@ export const registerStaffAPI =async(reqbody)=>{
 export const getStaffByEmailAPI =async(email)=>{
     return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
 }
-
-
-
-// Room section API's
-
-// add room
-export const addRoomAPI = async(roomDetails)=>{
-    return await commonAPI("POST", `${BASEURL}/roomData`, roomDetails)
-}
-
-//get room
-export const getRoomAPI = async ()=>{
-    return await commonAPI("GET", `${BASEURL}/roomData`,{})
-}
-
-// edit room
-export const editRoomAPI = async (id, roomDetails)=>{
-    return await commonAPI("PUT", `${BASEURL}/roomData/${id}`, roomDetails)
+// add fees status 
+export const getFeesDataAPI =async(reqbody)=>{
+    return await commonAPI("POST",`${BASEURL}/feesData`,(reqbody))
 }
