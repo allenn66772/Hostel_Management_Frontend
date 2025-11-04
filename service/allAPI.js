@@ -33,6 +33,10 @@ export const getStaffByEmailAPI =async(email)=>{
     return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
 }
 // add fees status 
-export const getFeesDataAPI =async(reqbody)=>{
-    return await commonAPI("POST",`${BASEURL}/feesData`,(reqbody))
+export const getFeesDataAPI = async (reqBody) => {
+  return await commonAPI("POST", `${BASEURL}/feesData`, reqBody);
+};
+//get fees status
+export const getFeesAPI =async()=>{
+    return await commonAPI ("GET",`${BASEURL}/feesData`)
 }

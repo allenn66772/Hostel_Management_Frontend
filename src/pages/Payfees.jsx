@@ -1,47 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { getUserByEmailAPI } from "../../service/allAPI";
+import React, { useState } from "react";
+import {  getFeesDataAPI } from "../../service/allAPI";
 
-function Payfees() {
-  const [userlog, setUserlog] = useState({
-    name: "",
-    email: "",
-  });
+export default function Payfees() {
+  const [user, setUser] = useState({ name: "", email: "" });
 
-  // ✅ Fetch user data
-  const getAllData = async () => {
-    try {
-      // get user email from session (or wherever you store it)
-      const email = sessionStorage.getItem("email");
-
-      if (!email) {
-        alert("User email not found. Please log in again.");
-        return;
-      }
-
-      const result = await getUserByEmailAPI(email);
-
-      if (result.status === 200 && result.data) {
-        setUserlog({
-          name: result.data.name || "",
-          email: result.data.email || "",
-        });
-      } else {
-        alert("Network error");
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      alert("Something went wrong while fetching user details!");
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
   };
 
-  useEffect(() => {
-    getAllData();
-  }, []);
+  const handlePay = async () => {
+    if (!user.name || !user.email) {
+      alert("Please enter your name and email before proceeding.");
+      return;
+    }
 
-  // ✅ Example submit
-  const handlePay = () => {
-    console.log("Payment initiated for:", userlog);
-    alert(`Proceeding to payment for ${userlog.name}`);
+    // send data to JSON Server
+    const result = await getFeesDataAPI(user);
+    if (result) {
+      alert(`Payment successful!\nName: ${user.name}\nEmail: ${user.email}`);
+      setUser({ name: "", email: "" }); // clear input fields
+    }
   };
 
   return (
@@ -49,7 +28,7 @@ function Payfees() {
       <section className="w-full max-w-md bg-white rounded-2xl shadow-md p-8">
         <h1 className="text-2xl font-semibold mb-2">Pay Fees</h1>
         <p className="text-sm text-gray-500 mb-6">
-          Confirm your details before proceeding with payment.
+          Enter your details before proceeding with payment.
         </p>
 
         <form className="space-y-4">
@@ -58,9 +37,10 @@ function Payfees() {
             <input
               type="text"
               name="name"
-              value={userlog.name}
-              readOnly
-              className="mt-1 block w-full rounded-lg border-gray-200 shadow-sm bg-gray-100 cursor-not-allowed p-3"
+              value={user.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              className="mt-1 block w-full rounded-lg border-gray-200 shadow-sm p-3 focus:border-blue-500 focus:ring focus:ring-blue-200"
             />
           </label>
 
@@ -69,9 +49,10 @@ function Payfees() {
             <input
               type="email"
               name="email"
-              value={userlog.email}
-              readOnly
-              className="mt-1 block w-full rounded-lg border-gray-200 shadow-sm bg-gray-100 cursor-not-allowed p-3"
+              value={user.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              className="mt-1 block w-full rounded-lg border-gray-200 shadow-sm p-3 focus:border-blue-500 focus:ring focus:ring-blue-200"
             />
           </label>
 
@@ -96,5 +77,3 @@ function Payfees() {
     </main>
   );
 }
-
-export default Payfees;
