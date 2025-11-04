@@ -12,13 +12,14 @@ import Adminlogin from "./login/Adminlogin";
 import Adminregister from "./login/Adminregister";
 import Userregister from "./login/Userregister";
 import ChooseLogin from "./login/ChooseLogin";
-// import StaffRegister from "./login/StaffRegister";
+import UserLogin from "./login/UserLogin";
 import Adminhome from "./pages/Adminhome";
 import ComplaintPage from "./pages/ComplaintPage";
 import Viewmaintenence from "./pages/Viewmaintenence";
 import Payfees from "./pages/Payfees";
 import Allstudents from "./pages/Allstudents";
 import Givecomplaint from "./pages/Givecomplaint";
+import Userhome from "./pages/Userhome";
 // import Adminhome from './pages/Adminhome'
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         <Route path="userlog" element={<UserLogin/>} />
         {/* <Route path="staffreg" element={<StaffRegister />} /> */}
         {/* <Route path="stafflog" element={<Staff_Login />} /> */}
-      
+      <Route path='userhome' element={<Userhome/>}/>
         <Route path="complaints" element={<ComplaintPage />} />
         <Route path="viewmain" element={<Viewmaintenence />} />
         <Route path="allroom" element={<Allroom />} />

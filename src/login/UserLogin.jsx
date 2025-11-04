@@ -35,7 +35,7 @@ export default function UserLogin() {
       if (user.password === password) {
         alert("Welcome Back!");
         console.log("Login successful:", user);
-        window.location = "/";
+        window.location = "/userhome";
       } else {
         alert("Incorrect password");
       }

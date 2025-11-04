@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaBuilding, FaUsers, FaBed, FaClipboardList } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -23,13 +24,15 @@ function Home() {
             Simplify hostel management with an all-in-one dashboard for rooms,
             students, attendance, and more.
           </p>
-          <motion.button 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-blue-700"
-          >
-            Get Started
-          </motion.button>
+       <Link to={"/choose"}>
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-blue-700"
+            >
+              Get Started
+            </motion.button>
+       </Link>
         </motion.div>
 
         <motion.img
