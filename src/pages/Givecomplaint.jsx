@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { FaExclamationCircle, FaPaperPlane } from "react-icons/fa";
-
+import { complaint } from '../../service/allAPI';
 
 function Givecomplaint() {
-  
-   const [complaint, setComplaint] = useState({
+  const [complaintData, setComplaintData] = useState({
     name: "",
     roomNo: "",
     type: "",
@@ -13,17 +12,24 @@ function Givecomplaint() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setComplaint({ ...complaint, [name]: value });
+    setComplaintData({ ...complaintData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Complaint submitted successfully!");
-    setComplaint({ name: "", roomNo: "", type: "", message: "" });
+
+    // Call the POST API
+    const result = await complaint(complaintData);
+    if (result.status === 200 || result.status === 201) {
+      alert("Complaint submitted successfully!");
+      setComplaintData({ name: "", roomNo: "", type: "", message: "" });
+    } else {
+      alert("Failed to submit complaint. Please try again.");
+    }
   };
 
   return (
-   <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center p-6">
       <div className="bg-white shadow-xl rounded-3xl p-8 max-w-lg w-full border border-indigo-100">
         <h2 className="text-3xl font-extrabold text-indigo-700 mb-6 text-center flex items-center justify-center gap-2">
           <FaExclamationCircle className="text-indigo-500" /> Lodge a Complaint
@@ -35,7 +41,7 @@ function Givecomplaint() {
             <input
               type="text"
               name="name"
-              value={complaint.name}
+              value={complaintData.name}
               onChange={handleChange}
               required
               className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
@@ -48,7 +54,7 @@ function Givecomplaint() {
             <input
               type="text"
               name="roomNo"
-              value={complaint.roomNo}
+              value={complaintData.roomNo}
               onChange={handleChange}
               required
               className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
@@ -60,7 +66,7 @@ function Givecomplaint() {
             <label className="block text-gray-700 font-semibold mb-1">Complaint Type</label>
             <select
               name="type"
-              value={complaint.type}
+              value={complaintData.type}
               onChange={handleChange}
               required
               className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
@@ -77,7 +83,7 @@ function Givecomplaint() {
             <label className="block text-gray-700 font-semibold mb-1">Message</label>
             <textarea
               name="message"
-              value={complaint.message}
+              value={complaintData.message}
               onChange={handleChange}
               required
               className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
@@ -95,7 +101,7 @@ function Givecomplaint() {
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Givecomplaint
+export default Givecomplaint;

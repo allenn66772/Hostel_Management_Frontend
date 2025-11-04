@@ -28,11 +28,17 @@ export const getUserByEmailAPI=async(email)=>{
 export const registerStaffAPI =async(reqbody)=>{
     return await commonAPI("POST",`${BASEURL}/staffdata`,(reqbody))
 }
-// get login data from staff
-export const getStaffByEmailAPI =async(email)=>{
-    return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
-}
+
 // add fees status 
 export const getFeesDataAPI =async(reqbody)=>{
     return await commonAPI("POST",`${BASEURL}/feesData`,(reqbody))
 }
+// POST - Add complaint
+export const complaint = async (reqBody) => {
+  return await commonAPI("POST", `${BASEURL}/complaint`, reqBody);
+};
+
+// GET - Fetch all complaints
+export const getcomplaint = async () => {
+  return await commonAPI("GET", `${BASEURL}/complaint`);
+};

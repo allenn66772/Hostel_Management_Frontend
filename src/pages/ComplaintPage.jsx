@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { getcomplaint } from '../../service/allAPI';
 
-export default function ComplaintDisplay() {
-  const [complaints, setComplaints] = useState([
-    {
-      id: 1,
-      studentName: 'Abin C S',
-      type: 'Water Issue',
-      description: 'No water supply in the bathroom',
-      status: 'Pending',
-      date: '2025-10-25'
-    },
-    {
-      id: 2,
-      studentName: 'Rahul M',
-      type: 'Electricity',
-      description: 'Light not working in room 201',
-      status: 'Resolved',
-      date: '2025-10-22'
+ function ComplaintDisplay() {
+  const [complaints, setComplaints] = useState([]);
+
+  useEffect(() => {
+    fetchComplaints();
+  }, []);
+
+  const fetchComplaints = async () => {
+    const result = await getcomplaint();
+    if (result.status === 200) {
+      setComplaints(result.data);
+    } else {
+      console.error("Failed to fetch complaints");
     }
-  ]);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
@@ -38,18 +35,18 @@ export default function ComplaintDisplay() {
           </thead>
 
           <tbody>
-            {complaints.map((item) => (
-              <tr key={item.id} className="border-b hover:bg-gray-50">
-                <td className="py-3 px-4">{item.id}</td>
-                <td className="py-3 px-4 font-medium text-gray-800">{item.studentName}</td>
+            {complaints.map((item, index) => (
+              <tr key={item._id || index} className="border-b hover:bg-gray-50">
+                <td className="py-3 px-4">{index + 1}</td>
+                <td className="py-3 px-4 font-medium text-gray-800">{item.name}</td>
                 <td className="py-3 px-4">{item.type}</td>
-                <td className="py-3 px-4 text-gray-600">{item.description}</td>
+                <td className="py-3 px-4 text-gray-600">{item.message}</td>
                 <td className={`py-3 px-4 font-semibold ${
                   item.status === 'Resolved' ? 'text-green-600' : 'text-yellow-600'
                 }`}>
-                  {item.status}
+                  {item.status || "Pending"}
                 </td>
-                <td className="py-3 px-4 text-gray-500">{item.date}</td>
+                <td className="py-3 px-4 text-gray-500">{item.date || "—"}</td>
               </tr>
             ))}
           </tbody>
@@ -58,3 +55,5 @@ export default function ComplaintDisplay() {
     </div>
   );
 }
+
+export default ComplaintDisplay
