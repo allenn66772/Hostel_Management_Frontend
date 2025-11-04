@@ -26,19 +26,7 @@ function LandingPage() {
         </div>
 
         
-        <div className="bg-white shadow-lg rounded-2xl p-8 flex flex-col items-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-          <FaChalkboardTeacher className="text-green-600 text-6xl mb-4" />
-          <h2 className="text-2xl font-semibold mb-2">Staff</h2>
-          <p className="text-gray-500 text-center mb-6">
-            Handle student records, complaints, and daily hostel tasks.
-          </p>
-          <Link
-            to="/staff-login"
-            className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
-          >
-            Login as Staff
-          </Link>
-        </div>
+      
 
         
         <div className="bg-white shadow-lg rounded-2xl p-8 flex flex-col items-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">

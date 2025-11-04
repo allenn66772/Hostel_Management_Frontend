@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Payfees() {
+
+  const [userData,setUserData]=useState({
+    UserDetails:{
+      fullname:"",
+      
+    }
+  })
   
   return (
     <>
