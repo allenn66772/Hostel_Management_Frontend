@@ -18,6 +18,7 @@ import ComplaintPage from "./pages/ComplaintPage";
 import Viewmaintenence from "./pages/Viewmaintenence";
 import Payfees from "./pages/Payfees";
 import Allstudents from "./pages/Allstudents";
+import Givecomplaint from "./pages/Givecomplaint";
 // import Adminhome from './pages/Adminhome'
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path="payfee" element={<Payfees />} />
         <Route path="choose" element={<ChooseLogin />} />
         <Route path="alluser" element={<Allstudents />} />
+        <Route path="givecomplaint" element={<Givecomplaint/>}/>
         {/* <Route path='adminHome' element={<Adminhome/>}/> */}
       </Routes>
     </>
