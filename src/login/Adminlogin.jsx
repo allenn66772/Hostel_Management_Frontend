@@ -102,18 +102,16 @@ function Adminlogin() {
             type="submit"
             className="w-full py-3 rounded-lg text-white font-semibold shadow-md bg-blue-600 hover:bg-blue-700"
           >
-            Sign Up
+            Sign In
           </motion.button>
         </form>
-
-        {/* Social Signup */}
        
 
         {/* Footer */}
         <p className="mt-6 text-center text-sm text-gray-500">
           Already have an account?{" "}
           <a href="#" className="text-blue-600 hover:underline">
-            Sign in
+            Sign Up
           </a>
         </p>
       </motion.div>

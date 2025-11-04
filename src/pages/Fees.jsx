@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getFeesAPI } from "../../service/allAPI";
+import { getFeesDataAPI } from "../../service/allAPI";
+
 
 export default function FeesPage() {
   const [feesData, setFeesData] = useState([]);
@@ -7,7 +8,7 @@ export default function FeesPage() {
   // Fetch fees data from JSON server
   const fetchFeesData = async () => {
     try {
-      const result = await getFeesAPI();
+      const result = await getFeesDataAPI();
       if (result) {
         setFeesData(result);
       }
