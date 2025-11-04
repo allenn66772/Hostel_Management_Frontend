@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-import Staff_Login from "./login/Staff_Login";
-import UserLogin from "./login/UserLogin";
-import AddRoom from "./pages/Addroom";
+// import Staff_Login from "./login/Staff_Login";
+// import UserLogin from "./login/UserLogin";
+
 import Allroom from "./pages/Allroom";
 
 import FeesPage from "./pages/Fees";
@@ -12,12 +12,13 @@ import Adminlogin from "./login/Adminlogin";
 import Adminregister from "./login/Adminregister";
 import Userregister from "./login/Userregister";
 import ChooseLogin from "./login/ChooseLogin";
-import StaffRegister from "./login/StaffRegister";
+// import StaffRegister from "./login/StaffRegister";
 import Adminhome from "./pages/Adminhome";
 import ComplaintPage from "./pages/ComplaintPage";
 import Viewmaintenence from "./pages/Viewmaintenence";
 import Payfees from "./pages/Payfees";
 import Allstudents from "./pages/Allstudents";
+import UserLogin from './login/UserLogin'
 // import Adminhome from './pages/Adminhome'
 
 function App() {
@@ -29,10 +30,10 @@ function App() {
         <Route path="adminhome" element={<Adminhome />} />
         <Route path="adlog" element={<Adminlogin />} />
         <Route path="userreg" element={<Userregister />} />
-        <Route path="userlog" element={<UserLogin />} />
-        <Route path="staffreg" element={<StaffRegister />} />
-        <Route path="stafflog" element={<Staff_Login />} />
-        <Route path="addroom" element={<AddRoom />} />
+        <Route path="userlog" element={<UserLogin/>} />
+        {/* <Route path="staffreg" element={<StaffRegister />} /> */}
+        {/* <Route path="stafflog" element={<Staff_Login />} /> */}
+      
         <Route path="complaints" element={<ComplaintPage />} />
         <Route path="viewmain" element={<Viewmaintenence />} />
         <Route path="allroom" element={<Allroom />} />
