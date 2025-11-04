@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaBuilding, FaUsers, FaBed, FaClipboardList } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate()
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 flex flex-col">
 
@@ -24,15 +25,14 @@ function Home() {
             Simplify hostel management with an all-in-one dashboard for rooms,
             students, attendance, and more.
           </p>
-       <Link to={"/choose"}>
-            <motion.button 
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-blue-700"
-            >
-              Get Started
-            </motion.button>
-       </Link>
+          <motion.button 
+          onClick={()=>navigate("/chooselogin")}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-blue-700 cursor-pointer"
+          >
+            Get Started
+          </motion.button>
         </motion.div>
 
         <motion.img

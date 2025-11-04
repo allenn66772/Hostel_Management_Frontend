@@ -33,10 +33,19 @@ export const getStaffByEmailAPI =async(email)=>{
     return await commonAPI("get",`${BASEURL}/staffdata?email=${email}`,{})
 }
 // add fees status 
-export const getFeesDataAPI = async (reqBody) => {
-  return await commonAPI("POST", `${BASEURL}/feesData`, reqBody);
-};
-//get fees status
-export const getFeesAPI =async()=>{
-    return await commonAPI ("GET",`${BASEURL}/feesData`)
+export const getFeesDataAPI =async(reqbody)=>{
+    return await commonAPI("POST",`${BASEURL}/feesData`,(reqbody))
 }
+
+// Room section API's
+
+// add room
+export const addRoomAPI = async(roomDetails)=>{
+    return await commonAPI("POST", `${BASEURL}/roomData`, roomDetails)
+}
+
+//get room
+export const getRoomAPI = async ()=>{
+    return await commonAPI("GET", `${BASEURL}/roomData`,{})
+}
+
