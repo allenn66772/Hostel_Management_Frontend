@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+// import AddRooms from "../components/AddRooms";
 
 function Adminhome() {
   return (
@@ -23,7 +24,7 @@ function Adminhome() {
   <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl w-full">
     {/* Add Room */}
     <Link
-      to="/addroom"
+      to="/addrooms"
       className="bg-white rounded-xl p-8 shadow hover:shadow-lg transition text-center hover:bg-blue-50"
     >
       <FaPlusCircle className="text-5xl text-blue-500 mx-auto mb-4" />
@@ -35,7 +36,7 @@ function Adminhome() {
 
     {/* All Rooms */}
     <Link
-      to="/allroom"
+      to="/allrooms"
       className="bg-white rounded-xl p-8 shadow hover:shadow-lg transition text-center hover:bg-blue-50"
     >
       <FaBed className="text-5xl text-purple-500 mx-auto mb-4" />

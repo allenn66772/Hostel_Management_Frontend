@@ -120,6 +120,7 @@ export default function UserLogin() {
           <a href="#" className="text-blue-600 hover:underline">
             Sign up
           </a>
+          
         </p>
       </motion.div>
     </div>
